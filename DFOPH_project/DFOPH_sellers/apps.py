@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class DfophAppConfig(AppConfig):
+class DfophSellersConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'DFOPH_app'
+    name = 'DFOPH_sellers'
