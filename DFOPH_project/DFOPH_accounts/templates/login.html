@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Animated Login Form</title>
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+</head>
+<body>
+    <div class="box">
+        <form id="login-form" autocomplete="off">
+            <h2>Sign in</h2>
+
+            <div class="inputBox">
+                <input type="email" id="login-email" placeholder=" " required="required" />
+                <span>Email</span>
+                <i></i>
+            </div>
+
+            <div class="inputBox">
+                <input type="password" id="login-password" placeholder=" " required="required" />
+                <span>Password</span>
+                <i></i>
+            </div>
+
+            <div class="links">
+                <a href="#">Forgot Password?</a>
+                <a href="#"  onclick="openSignupModal()">Signup</a>
+            </div>
+
+            <input type="submit" value="Login" />
+            <div id="error-message" style="color:red; text-align:center; margin-top:10px;"></div>
+
+          
+        </form>
+    </div>
+          <!-- Sign Up Modal -->
+          <div id="signup-modal" class="modal">
+            <div id="modal-line-animations" class="box modal-box"> 
+                <span class="close-modal" onclick="closeSignupModal()">&times;</span>
+                <h2>Sign Up</h2>
+                <form id="signupForm" method="POST">
+                    {% csrf_token %}
+                <input type="text" name="username" id="signup-username" placeholder="Username" required>
+                <input type="email" name="email" id="signup-email" placeholder="Email" required>
+                <input type="password" name="password1" id="signup-password" placeholder="Password" required>
+                <input type="password" name="password2" id="signup-password2" placeholder="Confirm Password" required>
+                <input type="text" name="address" id="signup-address" placeholder="Address" required>
+                <select name="role" id="signup-role" required>
+                    <option value="buyer">Buyer</option>
+                    <option value="seller">Seller</option>
+                </select>
+                <button type="submit">Create Account</button>
+                </form>
+            </div>
+        </div>
+
+
+
+    <script src="{% static 'login.js' %}"></script>
+</body>
+</html>

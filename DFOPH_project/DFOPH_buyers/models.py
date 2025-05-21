@@ -3,7 +3,17 @@ from DFOPH_accounts.models import User  # import User from accounts app
 from DFOPH_sellers.models import Product
 
 
+class BuyersProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='buyers_profile')
+    phone = models.CharField(max_length=20)
+    address = models.TextField()
 
+    def __str__(self):
+        return f"Username:  {self.user.username}"
+
+    class Meta:
+        db_table = 'buyers_profile'
+    
 class Order(models.Model):
     order_id = models.AutoField(primary_key=True)
     product = models.ForeignKey('DFOPH_sellers.Product', on_delete=models.CASCADE, related_name="orders")
