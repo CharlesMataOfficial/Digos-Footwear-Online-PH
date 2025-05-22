@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+def buyers_dashboard(request):
+    return render(request, 'addtocart.html')
+

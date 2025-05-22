@@ -68,13 +68,14 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
             raise serializers.ValidationError({'detail': 'Invalid email or password'})
 
         # Pass username and password to the parent to generate tokens
-        data = super().validate({'email': user.email, 'password': password})
+        data = super().validate(attrs)
 
         # Optionally add extra user info to response
         data['user'] = {
             'id': user.id,
             'email': user.email,
             'username': user.username,
+            'role': user.role.name, 
         }
 
         return data
