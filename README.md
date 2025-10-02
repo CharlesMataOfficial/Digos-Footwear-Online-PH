@@ -1,14 +1,23 @@
 # Digos-Footwear-Online-PH
-to run venv :
+A Django-based e-commerce platform for Digos Footwear.
+---
+
+## Getting Started
+### 1. Activate Virtual Environment
+```bash
 venv\Scripts\activate
-
-to install requirements:
 cd DFOPH_project
+```
+
+### to install requirements
+```bash
 pip install -r requirements.txt
+```
 
-to run automigrate (instead of manually migrate apps ['DFOPH_accounts', 'DFOPH_sellers', 'DFOPH_buyers']):
+### to run automigrate (instead of manually migrate apps ['DFOPH_accounts', 'DFOPH_sellers', 'DFOPH_buyers']):
+```python 
 python manage.py automigrate
-
+```
 to create a admin user for authentication
 python manage.py createsuperuser
 
