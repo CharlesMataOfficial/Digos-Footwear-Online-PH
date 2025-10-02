@@ -8,28 +8,33 @@
 venv\Scripts\activate
 cd DFOPH_project
 ```
-
-### to install requirements
+### 2. To remove existing pycache and migration files (Only optional when to drop all data in database.
+### Delete migration files (except __init__.py), all __pycache__ folders, and .pyc files
+```bash
+Get-ChildItem -Path . -Recurse -Include *.py -Exclude __init__.py | Where-Object { $_.DirectoryName -match "migrations" } | Remove-Item -Force
+Get-ChildItem -Path . -Recurse -Directory -Filter "__pycache__" | Remove-Item -Recurse -Force
+Get-ChildItem -Path . -Recurse -Include *.pyc | Remove-Item -Force
+```
+### 3. To install requirements
 ```bash
 pip install -r requirements.txt
 ```
-
-### to run automigrate (instead of manually migrate apps ['DFOPH_accounts', 'DFOPH_sellers', 'DFOPH_buyers']):
+### 4. To run automigrate (instead of manually migrate apps ['DFOPH_accounts', 'DFOPH_sellers', 'DFOPH_buyers']):
 ```python 
 python manage.py automigrate
 ```
 
-### to create a admin user for authentication
+### 5. To create a admin user for authentication
 ```python
 python manage.py createsuperuser
 ```
 
 ## Installation notes 
-### to check the existing requirements.txt 
+### 1. To check the existing requirements.txt 
 ```cmd
 type requirements.txt
 ```
-### to change ports configuration the same field as xammp
+### 2.To change ports configuration the same field as xammp
 ```cmd
 xammp my.ini=port=3306
 ```
